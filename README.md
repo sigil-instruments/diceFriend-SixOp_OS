@@ -43,9 +43,13 @@ and GCC 11.3.1. The explicit package versions are in `platformio.ini`.
 CapacitiveSensor is supplied by Teensyduino. USB is MIDI + Serial and the
 device name stays `diceFriend v.01` when adapting this template.
 
-For bootloader access without opening the case, see the BOOTLOADER box in
+For firmware updates and recovery, see the BOOTLOADER box in
 `src/main.cpp`: automatic upload, the Serial `BOOTLOADER` command, the
 SH + DICE 10-second gesture, and the power-up rescue gesture.
+
+If the normal update methods fail, the Teensy PROGRAM button can also be
+pressed through the small emergency access hole in the enclosure.
+See the [illustrated emergency access guide](docs/BOOTLOADER_RECOVERY.md).
 
 ## Native audio preview
 

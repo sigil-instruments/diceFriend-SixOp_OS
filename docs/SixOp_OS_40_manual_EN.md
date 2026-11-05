@@ -92,7 +92,11 @@ Output is queued outside the receiver. If the queue fills, pending events are di
 
 ## Bootloader and recovery
 
-Normal PlatformIO upload can reboot the MIDI + Serial device automatically. Alternatively send the line BOOTLOADER through the Serial monitor at 115200, or hold SH + DICE for 10 seconds. Release early or change SHIFT to cancel. For startup rescue, select SH, hold DICE while connecting USB, and keep holding for 3 seconds. The internal Teensy PROGRAM button is the final recovery option.
+Normal PlatformIO upload can reboot the MIDI + Serial device automatically. Alternatively send the line BOOTLOADER through the Serial monitor at 115200, or hold SH + DICE for 10 seconds. Release early or change SHIFT to cancel. For startup rescue, select SH, hold DICE while connecting USB, and keep holding for 3 seconds.
+
+If these methods fail, use the emergency PROGRAM button access hole below and slightly to the right of the USB-C port. Gently insert a thin, straight wire or a blunt needle. The small silicone button is a few millimetres below the surface; locate it carefully and press gently until you feel a slight click, then remove the tool. Continue programming with Teensy Loader. Do not use excessive force or push sharp objects deep into the enclosure. PROGRAM requests bootloader mode; it is not an ordinary restart button.
+
+See the illustrated emergency access guide and annotated photo at https://github.com/sigil-instruments/diceFriend-SixOp_OS/blob/main/docs/BOOTLOADER_RECOVERY.md.
 
 ## Patch ideas
 

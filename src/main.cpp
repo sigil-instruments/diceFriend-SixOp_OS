@@ -111,10 +111,10 @@
      shown one-hot after a TS DICE tap; bootloader has a countdown.
 
    ╔══════════════════════════════════════════════════════════════════════════╗
-   ║ BOOTLOADER  (how to flash a new OS without opening the case)            ║
+   ║ BOOTLOADER  (firmware updates and emergency PROGRAM button access)     ║
    ╠══════════════════════════════════════════════════════════════════════════╣
-   ║ The PROGRAM button on the Teensy is inside the case. To enter the      ║
-   ║ bootloader without opening it, use the options below in order:          ║
+   ║ To enter the bootloader, use the options below in order. The physical   ║
+   ║ PROGRAM button is accessible through the emergency hole in the case.  ║
    ║                                                                          ║
    ║  1. Just upload.  With a USB type that includes Serial (this OS uses    ║
    ║     MIDI + Serial) the upload tool can usually reboot the Teensy        ║
@@ -125,12 +125,18 @@
    ║     Let go any time before that to cancel.  Flipping SHIFT cancels too. ║
    ║  4. Power-up rescue: SHIFT to SH, hold DICE, plug in USB, keep holding  ║
    ║     3 s (LEDs blink).  Works even if the main loop of the OS is broken. ║
-   ║  5. Only if all of the above fail: the PROGRAM button.                  ║
+   ║  5. Emergency PROGRAM button access through the enclosure hole:        ║
+   ║     Locate the small hole below and to the right of the USB-C port.    ║
+   ║     See docs/BOOTLOADER_RECOVERY.md and its annotated photo.           ║
+   ║     Gently insert a thin straight wire or a blunt needle. The button   ║
+   ║     is a few millimetres below the enclosure surface; press gently     ║
+   ║     until you feel a slight click, then remove the tool.               ║
+   ║     Do not force it or push a sharp object deep into the enclosure.    ║
    ║                                                                          ║
    ║ IF YOU WRITE YOUR OWN OS: keep section 10 (bootRescueAtPowerUp, the    ║
    ║ 10 s gesture and enterBootloader) and keep calling serviceDice() inside ║
-   ║ every long loop.  An OS without these forces the next person to open   ║
-   ║ the case.                                                                ║
+   ║ every long loop. These provide convenient software recovery before    ║
+   ║ the physical PROGRAM button needs to be reached through its hole.     ║
    ╚══════════════════════════════════════════════════════════════════════════╝
 
    ╔══════════════════════════════════════════════════════════════════════════╗
