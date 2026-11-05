@@ -1,0 +1,18 @@
+# Keep local artifacts out of source archives made with git archive.
+.pio export-ignore
+.vscode export-ignore
+.idea export-ignore
+.cache export-ignore
+.dummy export-ignore
+.DS_Store export-ignore
+compile_commands.json export-ignore
+render export-ignore
+render.exe export-ignore
+test/render export-ignore
+test/render.exe export-ignore
+*.wav export-ignore
+.env export-ignore
+.env.* export-ignore
+secrets.* export-ignore
+*.key export-ignore
+*.pem export-ignore
