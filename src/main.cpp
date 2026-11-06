@@ -205,6 +205,7 @@
 
 #ifndef SIXOP_NATIVE_TEST          // defined only by test/render_native.cpp
 #include <Arduino.h>
+#include "cv_spike_guard.h"
 #include <Audio.h>
 #include <CapacitiveSensor.h>
 #endif
@@ -829,6 +830,7 @@ volatile uint32_t cv1EdgeUs = 0, cv1Sequence = 0;
 uint32_t cv1SeenSequence = 0;
 uint32_t cv1LastMs = 0;                       // last CV1 edge (ms), for CV2 priority
 void cv1ISR() {
+  if (!cvguard::accept(hw::PIN_CV1)) return;  // ignore noise spikes on CV1, see cv_spike_guard.h
   uint32_t now = micros();
   if (uint32_t(now - cv1EdgeUs) > 1000) { cv1EdgeUs = now; ++cv1Sequence; }
 }

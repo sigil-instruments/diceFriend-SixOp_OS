@@ -1,6 +1,6 @@
 # SixOp_OS
 
-Version 0.1 - diceFriend, Teensy 4.0. English manual.
+Version 0.2 - diceFriend, Teensy 4.0. English manual.
 
 SixOp_OS is the open-source showcase OS for diceFriend: a complete, commented example that can be studied, modified and used as a starting point for new systems. As an instrument, it is a three-voice, six-operator FM design. Eight algorithm routings, operator feedback, envelope characters, vibrato, lo-fi colour and stereo echo range from soft drones and electric-piano attacks to metallic bells and rough bass. It is inspired by DX7 architecture; it is not a bit-exact emulation and does not import DX7 SysEx patches.
 
@@ -57,7 +57,7 @@ The gesture belongs to the layer where the press began. Changing SHIFT during a 
 
 ## CV and clock priority
 
-CV1 accepts trigger/clock edges with an approximately 1 ms filter. It re-strikes AS or the free TS voices. CV2 accepts pulses as a secondary clock; steady voltage adds FM depth. CV1 blocks CV2 steps while it owns the clock. A cable already high at startup does not create a CV2 edge.
+CV1 accepts trigger/clock edges with an approximately 1 ms filter. It re-strikes AS or the free TS voices. A CV1 pulse counts only if it is at least 50 µs long, and CV1 takes over the clock after two edges 1 ms to 10 s apart; from then on every edge counts at once. Single noise spikes on an unpatched CV1 are ignored and cannot stop a running MIDI Clock. The first pulse after silence does not play, and triggers more than 10 s apart are ignored. CV2 accepts pulses as a secondary clock; steady voltage adds FM depth. CV1 blocks CV2 steps while it owns the clock. A cable already high at startup does not create a CV2 edge.
 
 Clock priority is CV, then MIDI, then internal PULSE. MIDI steps are blocked for 20 seconds after the last valid CV edge. Internal timing returns only after 30 seconds without an active external source. Between 20 and 30 seconds after the last CV edge, the instrument waits unless MIDI is active. Internal PULSE operates only in AS. A continuous AS drone remains audible while clocks are waiting or stopped.
 

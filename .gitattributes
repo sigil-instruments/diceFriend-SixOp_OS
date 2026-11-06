@@ -16,3 +16,5 @@ test/render.exe export-ignore
 secrets.* export-ignore
 *.key export-ignore
 *.pem export-ignore
+*.hex -text -diff
+*.pdf -text -diff

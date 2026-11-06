@@ -1,3 +1,11 @@
+# SixOp_OS v0.2 (2026-11-06)
+
+- CV1 spike guard (`src/cv_spike_guard.h`, called first in the CV1 interrupt). An unpatched CV1 could catch a single noise spike; under the CV > MIDI > internal clock priority that spike took the clock for 20 s and silenced a running MIDI Clock. Now a pulse must stay high for at least 50 µs, and CV1 takes over only after two edges 1 ms to 10 s apart. Once CV1 owns the clock, every edge counts at once.
+- Cost: the first CV1 pulse after silence does not play; triggers more than 10 s apart are ignored.
+- Synthesis, controls, MIDI and pinout are unchanged.
+
+Hardware status: the same guard was tested on hardware in other diceFriend OSes (MIDI Clock with an unpatched CV1, CV clock, CV triggers). SixOp_OS v0.2 itself has not been played on hardware yet.
+
 # SixOp_OS v0.1 publication preparation
 
 - Canonical project name: SixOp_OS_40; display name: SixOp_OS; firmware: SixOp_OS_40_L.hex.

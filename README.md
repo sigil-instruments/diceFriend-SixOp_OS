@@ -1,4 +1,4 @@
-# SixOp_OS v0.1
+# SixOp_OS v0.2
 
 Play it as a complete instrument, or use its commented code to build your own diceFriend OS.
 

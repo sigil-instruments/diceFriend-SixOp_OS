@@ -20,3 +20,6 @@ compile_commands.json
 secrets.*
 *.key
 *.pem
+
+# Local backups of edited sources
+*.bak
